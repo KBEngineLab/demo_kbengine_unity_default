@@ -36,7 +36,7 @@ namespace KBEngine
 			{
 				if(skills[i].id == skill.id)
 				{
-					Dbg.DEBUG_MSG("SkillBox::add: " + skill.id  + " is exist!");
+					KBELog.DEBUG_MSG("SkillBox::add: " + skill.id  + " is exist!");
 					return;
 				}
 			}

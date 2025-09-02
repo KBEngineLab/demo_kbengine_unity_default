@@ -325,8 +325,12 @@ public class UI : MonoBehaviour
 	
 	public void onConnectionState(bool success)
 	{
-		if(!success)
+		if (!success)
+		{
+			
+			Debug.Log("connect(" + KBEngineApp.app.getInitArgs().ip + ":" + KBEngineApp.app.getInitArgs().port + ") is error! (连接错误)");
 			err("connect(" + KBEngineApp.app.getInitArgs().ip + ":" + KBEngineApp.app.getInitArgs().port + ") is error! (连接错误)");
+		}
 		else
 			info("connect successfully, please wait...(连接成功，请等候...)");
 	}

@@ -38,11 +38,11 @@ namespace KBEngine
 			if(retcode == 0)
 			{
 				avatars.Add(info.dbid, info);
-				Dbg.DEBUG_MSG("Account::onCreateAvatarResult: name=" + info.name);
+				KBELog.DEBUG_MSG("Account::onCreateAvatarResult: name=" + info.name);
 			}
 			else
 			{
-				Dbg.ERROR_MSG("Account::onCreateAvatarResult: retcode=" + retcode);
+				KBELog.ERROR_MSG("Account::onCreateAvatarResult: retcode=" + retcode);
 			}
 
 			// ui event
@@ -51,7 +51,7 @@ namespace KBEngine
 		
 		public override void onRemoveAvatar(UInt64 dbid)
 		{
-			Dbg.DEBUG_MSG("Account::onRemoveAvatar: dbid=" + dbid);
+			KBELog.DEBUG_MSG("Account::onRemoveAvatar: dbid=" + dbid);
 			
 			avatars.Remove(dbid);
 
@@ -63,11 +63,11 @@ namespace KBEngine
 		{
 			avatars.Clear();
 				
-			Dbg.DEBUG_MSG("Account::onReqAvatarList: avatarsize=" + infos.values.Count);
+			KBELog.DEBUG_MSG("Account::onReqAvatarList: avatarsize=" + infos.values.Count);
 			for(int i=0; i< infos.values.Count; i++)
 			{
 				AVATAR_INFOS info = infos.values[i];
-				Dbg.DEBUG_MSG("Account::onReqAvatarList: name" + i + "=" + info.name);
+				KBELog.DEBUG_MSG("Account::onReqAvatarList: name" + i + "=" + info.name);
 				avatars.Add(info.dbid, info);
 			}
 			
@@ -83,19 +83,19 @@ namespace KBEngine
 
 		public void reqCreateAvatar(Byte roleType, string name)
 		{
-			Dbg.DEBUG_MSG("Account::reqCreateAvatar: roleType=" + roleType);
+			KBELog.DEBUG_MSG("Account::reqCreateAvatar: roleType=" + roleType);
 			baseEntityCall.reqCreateAvatar(roleType, name);
 		}
 
 		public void reqRemoveAvatar(string name)
 		{
-			Dbg.DEBUG_MSG("Account::reqRemoveAvatar: name=" + name);
+			KBELog.DEBUG_MSG("Account::reqRemoveAvatar: name=" + name);
 			baseEntityCall.reqRemoveAvatar(name);
 		}
 		
 		public void selectAvatarGame(UInt64 dbid)
 		{
-			Dbg.DEBUG_MSG("Account::selectAvatarGame: dbid=" + dbid);
+			KBELog.DEBUG_MSG("Account::selectAvatarGame: dbid=" + dbid);
 			baseEntityCall.selectAvatarGame(dbid);
 		}
     }
