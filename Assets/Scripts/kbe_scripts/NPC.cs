@@ -35,5 +35,16 @@ namespace KBEngine
 			Event.fireOut("set_modelID", new object[]{this, modelID});
 		}
 
+		public override void onPositionChanged(KBVector3 oldValue)
+		{
+			KBELog.DEBUG_MSG(className + "::onPositionChanged: oldValue:" + oldValue + " => " + oldValue + " , position:"+position);
+			base.onPositionChanged(oldValue);
+		}
+		public override void onSmoothPositionChanged(KBVector3 oldValue)
+		{
+			KBELog.DEBUG_MSG(className + "::onSmoothPositionChanged: oldValue:" + oldValue + " => " + oldValue + " , position:"+position);
+			base.onSmoothPositionChanged(oldValue);
+		}
+
     }
 } 

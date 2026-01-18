@@ -202,17 +202,21 @@ public class GameEntity : MonoBehaviour
     	if(isPlayer == isControlled)
     		return;
 
-		KBEngine.Event.fireIn("updatePlayer", spaceID, gameObject.transform.position.x, 
+		KBEngine.Event.fireIn("updatePlayer", spaceID, -gameObject.transform.position.x,
 			gameObject.transform.position.y, gameObject.transform.position.z, gameObject.transform.rotation.eulerAngles.y);
     }
     
-	void Update () 
+	void Update ()
 	{
+
 		if (!entityEnabled) 
 		{
 			position = destPosition;
 			return;
 		}
+
+
+
 
 		float deltaSpeed = (speed * Time.deltaTime);
 		
@@ -229,74 +233,13 @@ public class GameEntity : MonoBehaviour
 		    
 			return;
 		}
-		
+
+
 		if(Vector3.Distance(eulerAngles, destDirection) > 0.0004f)
 		{
 			rotation = Quaternion.Slerp(rotation, Quaternion.Euler(destDirection), 8f * Time.deltaTime);
 		}
 
-		float dist = 0.0f;
-
-		// 如果isOnGround为true，服务端同步其他实体到客户端时为了节省流量并不同步y轴，客户端需要强制将实体贴在地面上
-		// 由于这里的地面位置就是0，所以直接填入0，如果是通过navmesh不规则地表高度寻路则需要想办法得到地面位置
-		if(isOnGround)
-		{
-			dist = Vector3.Distance(new Vector3(destPosition.x, 0f, destPosition.z), 
-				new Vector3(position.x, 0f, position.z));
-		}
-		else
-		{
-			dist = Vector3.Distance(destPosition, position);
-		}
-
-		if(jumpState > 0)
-		{
-			if(jumpState == 1)
-			{
-				currY += 0.05f;
-				
-				if(currY > 2.0f)
-					jumpState = 2;
-			}
-			else
-			{
-				currY -= 0.05f;
-				if(currY < 1.0f)
-				{
-					jumpState = 0;
-					currY = 1.0f;
-				}
-			}
-			
-			Vector3 pos = position;
-			pos.y = currY;
-			position = pos;
-		}
-		
-		if(dist > 0.01f)
-		{
-			Vector3 pos = position;
-
-			Vector3 movement = destPosition - pos;
-			movement.y = 0f;
-			movement.Normalize();
-			
-			movement *= deltaSpeed;
-			
-			if(dist > deltaSpeed || movement.magnitude > deltaSpeed)
-				pos += movement;
-			else
-				pos = destPosition;
-			
-			if(isOnGround)
-				pos.y = currY;
-			
-			position = pos;
-		}
-		else
-		{
-			position = destPosition;
-		}
 	}
 	
 	public void OnJump()

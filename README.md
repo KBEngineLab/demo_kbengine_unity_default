@@ -3,32 +3,18 @@ KBEngine_unity3d_demo
 
 ## This client-project is written for KBEngine(a MMOG engine of server)
 
-http://www.kbengine.org
+https://www.kbelab.com/
 
-## 中文
-
-[Demo搭建文档](https://github.com/kbengine/kbengine_unity3d_demo/blob/master/README_CN.md)，QQ交流群：461368412，[论坛](http://bbs.kbengine.org)
-
-## Releases
-
-	sources		: https://github.com/kbengine/kbengine_unity3d_demo/releases/latest
-
-
-## KBE-Plugins docs
-
-	kbengine_unity3d_demo\Assets\Plugins\kbengine_unity3d_plugins\README.md
 
 
 ## Start:
 	1. Download KBEngine(a MMOG engine of server):
 		Download(KBEngine):
-			https://github.com/kbengine/kbengine/releases/latest
+			https://github.com/KBEngineLab/KBEngine-Nex
 
 		Build(KBEngine):
-			http://kbengine.github.io/docs/build.html
+			https://www.kbelab.com/manual/install.html
 
-		Installation(KBEngine):
-			http://kbengine.github.io/docs/installation.html
 
 	2. Use git to get the demo-assets(server):
 
@@ -43,7 +29,7 @@ http://www.kbengine.org
 		* Or manually get the demo-assets(server)
 
 			Download demo-assets(server):
-				https://github.com/kbengine/kbengine_demos_assets/releases/latest
+				https://github.com/KBEngineLab/demo_kbengine_nex_assets
 				unzip and copy to "kbengine/"  (The root directory server engine, such as $KBE_ROOT)
 
 	3. Copy "kbengine_unity3d_demo\kbengine_demos_assets" to "kbengine\" root directory
@@ -97,7 +83,7 @@ http://www.kbengine.org
 		kbengine\kbengine_demos_assets\res\spaces\*
 
 	Generation Navmeshs:
-		https://github.com/kbengine/unity3d_nav_critterai
+		https://navmesh.kbelab.com/
 
 
 ## Structure and interpretation:
@@ -160,4 +146,4 @@ http://www.kbengine.org
 
 ![screenshots1](http://kbengine.github.io/assets/img/screenshots/unity3d_demo9.jpg)
 ![screenshots2](http://kbengine.github.io/assets/img/screenshots/unity3d_demo10.jpg)
-![screenshots3](http://kbengine.github.io/assets/img/screenshots/unity3d_demo11.jpg)
+![screenshots3](images/git_01.png)

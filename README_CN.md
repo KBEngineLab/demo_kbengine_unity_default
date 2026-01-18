@@ -1,40 +1,28 @@
 KBEngine_unity3d_demo
 =============
+## 注意: 本demo由老kbe demo 升级而来，部分代码（同步、Event）对于新手不是很好理解，可以参考Godot Demo（C#），事件、同步等逻辑都在对应的Entity类里，更好入门。
+
+## 本Demo不会再进行升级，请期待新的MMO Demo。
+
 
 ## 本项目作为KBEngine服务端引擎的客户端演示而写
 
-http://www.kbengine.org
-
-## 官方论坛
-
-	http://bbs.kbengine.org
+https://www.kbelab.com/
 
 
 ## QQ交流群
 
-	461368412
+	150506969
 
-
-## Releases
-
-	sources		: https://github.com/kbengine/kbengine_unity3d_demo/releases/latest
-
-
-## KBE插件文档
-
-	kbengine_unity3d_demo\Assets\Plugins\kbengine_unity3d_plugins\README.md
 
 
 ## 开始:
 	1. 确保已经下载过KBEngine服务端引擎，如果没有下载请先下载
 		下载服务端源码(KBEngine)：
-			https://github.com/kbengine/kbengine/releases/latest
+			https://github.com/KBEngineLab/KBEngine-Nex
 
 		编译(KBEngine)：
-			http://kbengine.github.io/docs/build.html
-
-		安装(KBEngine)：
-			http://kbengine.github.io/docs/installation.html
+			https://www.kbelab.com/manual/install.html
 
 	2. 下载服务端Demo资产库:
 
@@ -49,7 +37,7 @@ http://www.kbengine.org
                 * 也可以手动下载服务端Demo资产库
 
 		        服务端资产库下载：
-		            https://github.com/kbengine/kbengine_demos_assets/releases/latest
+		            https://github.com/KBEngineLab/demo_kbengine_nex_assets
 		            下载后请将其解压缩,并将目录文件放置于服务端引擎根目录"kbengine/"之下，如下图：
 
 	3. 拷贝服务端资产库"kbengine_demos_assets"到服务端引擎根目录"kbengine/"之下，如下图：
@@ -58,7 +46,7 @@ http://www.kbengine.org
 
 	4. 通过服务端资产库生成KBE客户端插件（可选，默认已经带有一份，除非服务器有相关改动才需要再次生成）
 		1: 双击运行 kbengine/kbengine_demos_asset/gensdk.bat
-		2: 拷贝kbengine_unity3d_plugins到kbengine_unity3d_demo\Assets\Plugins\
+		2: 拷贝kbe_csharp_plugins到kbengine_unity3d_demo\Assets\Plugins\
 
 
 ## 配置Demo(可选):
@@ -77,10 +65,10 @@ http://www.kbengine.org
 
 	使用启动脚本启动服务端：
 		Windows:
-			kbengine\kbengine_demos_assets\start_server.bat
+			kbengine\kbengine_demos_assets\scripts\start_server.bat
 
 		Linux:
-			kbengine\kbengine_demos_assets\start_server.sh
+			kbengine\kbengine_demos_assets\scripts\start_server.sh
 
 	检查启动状态：
 			如果启动成功将会在日志中找到"Components::process(): Found all the components!"。
@@ -99,8 +87,8 @@ http://www.kbengine.org
 	服务端使用Recastnavigation在3D世界寻路，recastnavigation生成的导航网格（Navmeshs）放置于：
 		kbengine\kbengine_demos_assets\res\spaces\*
 
-	在Unity3D中使用插件生成导航网格（Navmeshs）:
-		https://github.com/kbengine/unity3d_nav_critterai
+	使用在线插件生成导航网格（Navmeshs）:
+		https://navmesh.kbelab.com/
 
 
 ## 结构与释义：
@@ -110,7 +98,7 @@ http://www.kbengine.org
 		插件与U3D：插件将某些事件触发给U3D图形层，图形层决定是否需要捕获某些事件获得数据进行渲染表现（例如：创建怪物、某个NPC的移动速度增加、HP变化）、
 			U3D图形层将输入事件触发到插件层（例如：玩家移动了、点击了复活按钮UI），插件逻辑脚本层决定是否需要中转到服务器等等。
 
-	Plugins\kbengine\kbengine_unity3d_plugins：
+	Plugins\kbengine\kbe_csharp_plugins：
 		KBE客户端插件的核心层代码。
 
 	Scripts\kbe_scripts：
@@ -159,4 +147,4 @@ http://www.kbengine.org
 
 ![screenshots1](http://kbengine.github.io/assets/img/screenshots/unity3d_demo9.jpg)
 ![screenshots2](http://kbengine.github.io/assets/img/screenshots/unity3d_demo10.jpg)
-![screenshots3](http://kbengine.github.io/assets/img/screenshots/unity3d_demo11.jpg)
+![screenshots3](images/git_01.png)

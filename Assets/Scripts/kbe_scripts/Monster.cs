@@ -70,9 +70,10 @@ namespace KBEngine
 		
 		public override void onModelIDChanged(UInt32 oldValue)
 		{
-			// KBELog.DEBUG_MSG(className + "::set_modelID: " + old + " => " + v); 
+			// KBELog.DEBUG_MSG(className + "::set_modelID: " + old + " => " + v);
 			Event.fireOut("set_modelID", new object[]{this, modelID});
 		}
+
 
     }
 } 

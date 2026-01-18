@@ -143,10 +143,10 @@ public class World : MonoBehaviour
 		}
 		
 		float y = avatar.position.y;
-		if(avatar.isOnGround)
-			y = 1.3f;
+		// if(avatar.isOnGround)
+		// 	y = 1.3f;
 		
-		player = Instantiate(avatarPerfab, new Vector3(avatar.position.x, y, avatar.position.z), 
+		player = Instantiate(avatarPerfab, new Vector3(avatar.position.x, y, avatar.position.z),
 		                     Quaternion.Euler(new Vector3(avatar.direction.y, avatar.direction.z, avatar.direction.x))) as UnityEngine.GameObject;
 
 		player.GetComponent<GameEntity>().entityDisable();
@@ -171,8 +171,8 @@ public class World : MonoBehaviour
 			return;
 		
 		float y = entity.position.y;
-		if(entity.isOnGround)
-			y = 1.3f;
+		// if(entity.isOnGround)
+		// 	y = 1.3f;
 		
 		entity.renderObj = Instantiate(entityPerfab, new Vector3(entity.position.x, y, entity.position.z), 
 			Quaternion.Euler(new Vector3(entity.direction.y, entity.direction.z, entity.direction.x))) as UnityEngine.GameObject;
@@ -195,8 +195,8 @@ public class World : MonoBehaviour
 			return;
 
 		GameEntity gameEntity = ((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>();
-		gameEntity.destPosition = entity.position;
-		gameEntity.position = entity.position;
+		// gameEntity.destPosition = new Vector3(-entity.position.x,entity.position.y,entity.position.z);
+		gameEntity.position =new Vector3(-entity.position.x,entity.position.y,entity.position.z);
 		gameEntity.spaceID = KBEngineApp.app.spaceID;
 	}
 
@@ -206,7 +206,8 @@ public class World : MonoBehaviour
 			return;
 		
 		GameEntity gameEntity = ((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>();
-		gameEntity.destPosition = entity.position;
+		// gameEntity.destPosition = new Vector3(-entity.position.x,entity.position.y,entity.position.z);
+		gameEntity.position =new Vector3(-entity.position.x,entity.position.y,entity.position.z);
 		gameEntity.isOnGround = entity.isOnGround;
 		gameEntity.spaceID = KBEngineApp.app.spaceID;
 	}
@@ -226,7 +227,7 @@ public class World : MonoBehaviour
 			return;
 		
 		GameEntity gameEntity = ((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>();
-		gameEntity.destDirection = new Vector3(entity.direction.y, entity.direction.z, entity.direction.x); 
+		gameEntity.destDirection = new Vector3(entity.direction.y, -entity.direction.z, entity.direction.x);
 		gameEntity.spaceID = KBEngineApp.app.spaceID;
 	}
 
